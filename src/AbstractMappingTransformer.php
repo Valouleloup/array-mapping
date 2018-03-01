@@ -7,7 +7,7 @@ namespace Valouleloup\ArrayMapping;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 
-class MappingTransformer
+abstract class AbstractMappingTransformer
 {
     /**
      * @var PropertyAccessor
@@ -18,6 +18,14 @@ class MappingTransformer
     {
         $this->accessor = PropertyAccess::createPropertyAccessor();
     }
+
+    /**
+     * Parse input array to output array according to a YAML config file
+     *
+     * @param array $data The input array to transform
+     * @return array The output array (input array transformed)
+     */
+    abstract protected function transform(array $data);
 
     /**
      * @param array $mapping

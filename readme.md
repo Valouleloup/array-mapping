@@ -6,7 +6,9 @@ The goal of the library is to map two arrays (in and out) with an YAML file conf
 
 WIP, not official lib yet
 
-` require valouleloup/array-mapping `
+```bash
+composer require valouleloup/array-mapping
+```
 
 ## Usage
 
@@ -60,15 +62,15 @@ Your transformer needs to extends the ` MappingTransformer ` class :
 namespace Transformer;
  
 use DateTime;
-use Valouleloup\ArrayMapping\MappingTransformer;
+use Valouleloup\ArrayMapping\AbstractMappingTransformer;
 use Symfony\Component\Yaml\Yaml;
  
-class MyTransformer extends MappingTransformer
+class MyTransformer extends AbstractMappingTransformer
 {
     /**
      * {@inheritdoc}
      */
-    public function transform(array $dataBefore)
+    protected function transform(array $dataBefore)
     {
         // TODO use parseFile for SF >= 3.4
         $config = Yaml::parse(file_get_contents(__DIR__ . '/mapping.yml'));
