@@ -1,0 +1,19 @@
+{
+    "name": "valouleloup/array-mapping",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Valentin Faugeroux",
+            "email": "faugerouxvalentin@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Valouleloup\\ArrayMapping\\": "src/"
+        }
+    },
+    "require": {
+        "symfony/property-access": "^3.4"
+    }
+}
