@@ -10,11 +10,11 @@ abstract class AbstractMappingTransformer
     /**
      * @var PropertyAccessor
      */
-    private $accessor;
+    protected $accessor;
 
-    public function __construct()
+    public function __construct($accessor = null)
     {
-        $this->accessor = PropertyAccess::createPropertyAccessor();
+        $this->accessor = $accessor ? $accessor : PropertyAccess::createPropertyAccessor();
     }
 
     /**
