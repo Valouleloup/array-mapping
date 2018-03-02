@@ -128,7 +128,13 @@ abstract class AbstractMappingTransformer
         }
 
         if (null === $nodeValue && isset($node['default'])) {
-            $nodeValue = $node['default'];
+            // If default value is an array, try to get it node value
+            // Else return default value which is static
+            if (\is_array($node['default'])) {
+                $nodeValue = $this->getNodeValue($node['default'], $data);
+            } else {
+                $nodeValue = $node['default'];
+            }
         }
 
         return $nodeValue;
